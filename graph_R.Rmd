@@ -28,8 +28,10 @@ library(ggraph)
 ```
 
 ```{r load-data}
-fileLink_edges      <- "https://github.com/MagallanesAtAlacip/datafiles/raw/main/edges.csv"
-fileLink_attributes <- "https://github.com/MagallanesAtAlacip/datafiles/raw/main/nodeattributes.csv"
+location='https://github.com/Magallanes-at-UTDT/dataviz_2026/raw/main/'
+fileLink_edges      <- paste0(location,"edges.csv")
+fileLink_attributes <- paste0(location,"nodeattributes.csv")
+
 
 edges      <- read.csv(fileLink_edges)
 attributes <- read.csv(fileLink_attributes)
