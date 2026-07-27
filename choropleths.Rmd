@@ -30,27 +30,24 @@ rm(list = ls())
 # Load Data
 
 ```{r}
-linkMap <- "https://github.com/MagallanesAtAlacip/datafiles/raw/main/mapaProvCovid.gpkg"
+linkMap <- "https://github.com/Magallanes-at-UTDT/dataviz_2026/raw/main/mapaProvCovid.gpkg"
 
-# Read GeoJSON (equivalent to gpd.read_file)
+# Read 
 mapaProvCovid <- sf::read_sf(linkMap)
 
-# Check structure (equivalent to .info())
+# Check structure 
 str(mapaProvCovid)
 ```
 
 ```{r}
-# Check first rows (equivalent to .head())
 print(head(mapaProvCovid))
 ```
 
 ```{r}
-# Check CRS (equivalent to .crs)
 st_crs(mapaProvCovid)
 ```
 
 ```{r}
-# Check if projected (equivalent to .crs.is_projected)
 st_is_longlat(mapaProvCovid)  # TRUE if geographic (not projected)
 ```
 
@@ -113,7 +110,7 @@ head(mapaProvCovid)
 ```
 
 ```{r}
-# Summary statistics (equivalent to .describe())
+# Summary statistics 
 summary(mapaProvCovid)
 ```
 
@@ -122,7 +119,7 @@ summary(mapaProvCovid)
 ## Using Quantiles
 
 ```{r}
-# Create quantile breaks (equivalent to mc.Quantiles)
+# Create quantile breaks 
 qn_ratioPOS <- classIntervals(mapaProvCovid$ratioPOS_20_21, n = 5, style = "quantile")
 ```
 
@@ -173,7 +170,7 @@ print(head(mapaProvCovid))
 ### Plotting binned var
 
 ```{r}
-# ggplot2 doesn't have built-in _r palettes, so 'direction = -1'
+# ggplot2 'direction = -1'
 ggplot(mapaProvCovid) +
   geom_sf(aes(fill = ratioPOS_20_21_group)) +
   scale_fill_brewer(palette = "YlOrRd",
